@@ -57,3 +57,29 @@ meals:
 - `PUT /meals/:mealId` Updates a user's meal searched for by the `session_id` cookie and changes the desired data by sending `name`, `description`, `date` and `is_on_diet` via the request body, the `updated_at` field is automatically filled in.
 - `DELETE /meals/:mealId` Deletes a meal from the database by sending the `id` via request params.
 - `GET /meals/metrics` List of user metrics using the `session_id` cookie, informing the total number of meals, number of meals inside and outside the diet and the longest sequence of meals within the diet.
+
+## 🚀 How To Run
+```bash
+# Clone the project to the desired location on your computer.
+$ git clone https://github.com/leonardomenezes7/daily-diet-api
+
+# Navigate to the directory
+$ cd daily-diet-api
+
+# Install the dependencies
+$ npm run dev
+
+# Run Database migrations
+$ npm run knex -- migrate:latest
+
+# Create a .env file and enter the necessary variables based on .env.example file
+
+# Start the server
+$ npm run dev
+```
+
+## 📎 About
+I developed this project as part of Rocketseat’s Node.js course, where I learned a lot about REST API development. This experience helped me gain a deeper understanding of building robust APIs, handling requests, managing databases, and implementing best practices in backend development.
+
+### 👤 Developed by [Leonardo Menezes](https://www.linkedin.com/in/leonardo-menezes-04629a292/)
+
