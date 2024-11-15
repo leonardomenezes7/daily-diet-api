@@ -67,7 +67,7 @@ $ git clone https://github.com/leonardomenezes7/daily-diet-api
 $ cd daily-diet-api
 
 # Install the dependencies
-$ npm run dev
+$ npm install
 
 # Run Database migrations
 $ npm run knex -- migrate:latest
