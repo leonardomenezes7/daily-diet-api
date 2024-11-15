@@ -32,4 +32,28 @@ I developed an API project for meal management as part of Rocketseat’s Node.js
 
 users:
 - `id` Unique identifier for each user
-- 
+- `session_id` Cookie identifier of each user between requests
+- `name` User name
+- `email` User email
+- `created_at` Timestamp when user was created
+- `updated_at` Timestamp when user was updated
+
+meals:
+
+- `id` Unique identifier for each meal
+- `user_id` Foreign key that links the corresponding user to the meal
+- `name` Meal name
+- `description` Short description of the meal
+- `date` Meal date
+- `is_on_diet` Boolean that checks whether the meal is in the diet or not
+- `created_at` Timestamp when meal was created
+- `updated_at` Timestamp when meal was updated
+
+## ↔️ Routes
+- `POST /users` Creates a user in the database by sending the `name` and `email` fields in the request body and creates a `session_id` cookie in the application headers, the `created_at`, `session_id` and `updated_at` fields are filled automatically.
+- `POST /meals` Creates a meal in the database by checking if there is a `session_id` cookie in the request headers and sending the `name`, `description`, `date`, `is_on_diet` fields through the request body, the `user_id`, `created_at` and `updated_at` fields are automatically filled in.
+- `GET /meals`  Lists all meals by the user’s `session_id as request cookies.
+- `GET /meals/:mealId` Lists a specific meal by the user’s `session_id` from request cookies and the meal id from request params.
+- `PUT /meals/:mealId` Updates a user's meal searched for by the `session_id` cookie and changes the desired data by sending `name`, `description`, `date` and `is_on_diet` via the request body, the `updated_at` field is automatically filled in.
+- `DELETE /meals/:mealId` Deletes a meal from the database by sending the `id` via request params.
+- `GET /meals/metrics` List of user metrics using the `session_id` cookie, informing the total number of meals, number of meals inside and outside the diet and the longest sequence of meals within the diet.
